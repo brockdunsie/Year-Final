@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Deck extends JFrame{
     protected Character Jeff;
-    protected int i,size;
+    protected int i,size, j;
     protected Card temp;
     public Deck(){
         super("Jeff's Memory");
@@ -14,7 +14,9 @@ public class Deck extends JFrame{
         this.setLayout(null);
         this.setVisible(true);
         size = 20;
+        j = 0;
         createcharacter();
+        createDeck();
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -45,10 +47,12 @@ public class Deck extends JFrame{
     public void createDeck(){
         Card[] tower = new Card[size];
         for(int i  = 0; i <= 10; i++){
-            for (int j = 0; j<=1; j++){
-                String name = new String("Card" + i);
-                tower[i] = setCardName(i,j);
 
+                tower[i] = setCardName(i,j);
+                if (j == 0){
+                    j += 1;}
+                else if (j==1){
+                    j -=1;
             }
         }
 
@@ -62,99 +66,99 @@ public class Deck extends JFrame{
         if(i==1){
             if(j==0){
                 //Circle 1
-                Card temp = new Card(100,100,100,100, "",1);
+                Card temp = new Card(100,100,100,100, "2x4.png",1);
             }
             else if(j==1){
-                Card temp = new Card(200,100,100,100, "",1);
+                Card temp = new Card(200,100,100,100, "2x4.png",1);
             }
         }
         else if(i==2){
             if(j==0){
-                Card temp = new Card(300,100,100,100, "",2);
+                Card temp = new Card(300,100,100,100, "ConeofShame.png",2);
 
             }
             else if(j==1){
-                Card temp = new Card(400,100,100,100, "",2);
+                Card temp = new Card(400,100,100,100, "ConeofShame.png",2);
 
             }
         }
         else if(i==3){
             if(j==0){
-                Card temp = new Card(100,200,100,100, "",3);
+                Card temp = new Card(100,200,100,100, "Cylinder.png",3);
 
             }
             else if(j==1){
-                Card temp = new Card(200,200,100,100, "",3);
+                Card temp = new Card(200,200,100,100, "Cylinder.png",3);
 
             }
         }
         else if(i==4){
             if(j==0){
-                Card temp = new Card(300,200,100,100, "",4);
+                Card temp = new Card(300,200,100,100, "HayBale.png",4);
 
             }
             else if(j==1){
-                Card temp = new Card(400,200,100,100, "",4);
+                Card temp = new Card(400,200,100,100, "HayBale.png",4);
 
             }
         }
         else if(i==5){
             if(j==0){
-                Card temp = new Card(100,300,100,100, "",5);
+                Card temp = new Card(100,300,100,100, "Hexagon.png",5);
 
             }
             else if(j==1){
-                Card temp = new Card(200,300,100,100, "",5);
+                Card temp = new Card(200,300,100,100, "Hexagon.png",5);
 
             }
         }
         else if(i==6){
             if(j==0){
-                Card temp = new Card(300,300,100,100, "",6);
+                Card temp = new Card(300,300,100,100, "Hexagon2.png",6);
 
             }
             else if(j==1){
-                Card temp = new Card(400,300,100,100, "",6);
+                Card temp = new Card(400,300,100,100, "Hexagon2.png",6);
 
             }
         }
         else if(i==7){
             if(j==0){
-                Card temp = new Card(100,400,100,100, "",7);
+                Card temp = new Card(100,400,100,100, "Pyramid.png",7);
 
             }
             else if(j==1){
-                Card temp = new Card(200,400,100,100, "",7);
+                Card temp = new Card(200,400,100,100, "Pyramid.png",7);
 
             }
         }
         else if(i==8){
             if(j==0){
-                Card temp = new Card(300,400,100,100, "",8);
+                Card temp = new Card(300,400,100,100, "Pyramid2.png",8);
 
             }
             else if(j==1){
-                Card temp = new Card(400,400,100,100, "",8);
+                Card temp = new Card(400,400,100,100, "Pyramid2.png",8);
 
             }
         }
         else if(i==9){
             if(j==0){
-                Card temp = new Card(100,500,100,100, "",9);
+                Card temp = new Card(100,500,100,100, "Rectangle.png",9);
 
             }
             else if(j==1){
-                Card temp = new Card(200,500,100,100, "",9);
+                Card temp = new Card(200,500,100,100, "Rectangle.png",9);
 
             }
         }
         else if(i==10){
             if(j==0){
-                Card temp = new Card(300,500,100,100, "",10);
+                Card temp = new Card(300,500,100,100, "Square.png",10);
 
             }
             else if(j==1){
-                Card temp = new Card(400,500,100,100, "",10);
+                Card temp = new Card(400,500,100,100, "Square.png",10);
 
             }
         }
