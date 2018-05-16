@@ -10,7 +10,7 @@ public class Card extends JComponent implements MouseListener{
     protected JLabel gWin;
     protected ImagePanel back;
     protected ImagePanel Shape;
-    public Card(int x, int y, int w, int h, String q){
+    public Card(int x, int y, int w, int h, String q, int s){
         this.setBounds(x,y,w,h);
         question = q;
         matched=false;
@@ -23,6 +23,7 @@ public class Card extends JComponent implements MouseListener{
         Shape.setBounds(x,y,w,h);
         this.add(Shape,0);
 
+        setValue(s);
         addMouseListener(this);
     }
     //Returns Value
