@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
@@ -10,17 +11,36 @@ public class Card extends JComponent implements MouseListener{
     protected JLabel gWin;
     protected ImagePanel back;
     protected ImagePanel Shape;
-    public Card(int x, int y, int w, int h, String q, int s){
+    public Card(int x, int y, int w, int h, String q){
         this.setBounds(x,y,w,h);
         question = q;
         matched=false;
 
-        back = new ImagePanel(x,y,w,h,q);
+        back = new ImagePanel(0,0,w,h,"back.png");
+        back.setVisible(true);
         this.add(back);
 
-        Shape = new ImagePanel(x,y,w,h,q) ;
+        Rectangle hitbox = new Rectangle(w,h);
+        this.add(hitbox);
+
+        Shape = new ImagePanel(0,0,w,h,q) ;
         Shape.setVisible(false);
         Shape.setBounds(x,y,w,h);
+        this.add(Shape,0);
+
+        addMouseListener(this);
+    }
+    public Card(int x, int y, int w, int h, String q, String pic, int s){
+        this.setBounds(x,y,w,h);
+        question = q;
+        matched=false;
+
+        back = new ImagePanel(0,0,w,h,q);
+        back.setVisible(true);
+        this.add(back);
+
+        Shape = new ImagePanel(0,0,w,h,pic) ;
+        Shape.setVisible(false);
         this.add(Shape,0);
 
         setValue(s);
