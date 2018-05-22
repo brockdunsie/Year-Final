@@ -27,12 +27,11 @@ public class Card extends JComponent implements MouseListener{
 
         addMouseListener(this);
     }
-    public Card(int x, int y, int w, int h, String q, String pic, int s){
+    public Card(int x, int y, int w, int h, String pic, int s){
         this.setBounds(x,y,w,h);
-        question = q;
         matched=false;
 
-        back = new ImagePanel(0,0,w,h,q);
+        back = new ImagePanel(0,0,w,h,"back.png");
         back.setVisible(true);
         this.add(back);
 
