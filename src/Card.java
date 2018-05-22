@@ -20,9 +20,6 @@ public class Card extends JComponent implements MouseListener{
         back.setVisible(true);
         this.add(back);
 
-        Rectangle hitbox = new Rectangle(w,h);
-        this.add(hitbox);
-
         Shape = new ImagePanel(0,0,w,h,q) ;
         Shape.setVisible(false);
         Shape.setBounds(x,y,w,h);
@@ -98,14 +95,18 @@ public class Card extends JComponent implements MouseListener{
         }
         //arbitrary array list name[i].flipped = false;
     }
-    //What happens when you click the JComponent
-    @Override
-    public void mouseClicked(MouseEvent e) {
+    public void flip()
+    {
         if (this.back.isVisible()) {
             back.setVisible(false);
             Shape.setVisible(true);
             this.getFlipped();
         }
+    }
+    //What happens when you click the JComponent
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        flip();
     }
 
     @Override
