@@ -47,13 +47,11 @@ public class Card extends JComponent implements MouseListener{
         return  value;
     }
     //Return a boolean that states whether card is flipped
-    public boolean isFlipped(){
-        return flipped;
+    public void setFlipped(boolean b){
+        flipped = b;
     }
     //Flips card
-    public void getFlipped(){
-        this.flipped = !this.flipped;
-    }
+    public boolean getFlipped(){return flipped;}
     //Allows change of Value
     public int setValue(int s){
         value = s;
@@ -78,7 +76,7 @@ public class Card extends JComponent implements MouseListener{
         question = q;
     }
     //
-    public void reset(ArrayList <Card> whatever) {
+    public void reset(Card[] whatever) {
         for (Card c : whatever) {
             if ((c.flipped)&&(!matched)) {
                 back.setVisible(true);
