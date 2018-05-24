@@ -81,7 +81,7 @@ public class Card extends JComponent implements MouseListener{
             if ((c.flipped)&&(!matched)) {
                 back.setVisible(true);
                 Shape.setVisible(false);
-                c.flipped = false;
+                c.setFlipped(false);
             }
         }
     }
@@ -97,7 +97,7 @@ public class Card extends JComponent implements MouseListener{
         if (this.back.isVisible()) {
             back.setVisible(false);
             Shape.setVisible(true);
-            this.getFlipped();
+            this.setFlipped(true);
         }
     }
     //What happens when you click the JComponent

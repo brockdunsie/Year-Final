@@ -23,7 +23,7 @@ public class Deck extends JFrame{
         size = 20;
         j = 0;
         h = 0;
-        dub = new ArrayList<Card>();
+        dub = new ArrayList<Card>(2);
         there = false;
         gen = new Random();
         createcharacter();
@@ -65,8 +65,7 @@ public class Deck extends JFrame{
         }
     }
     public void checkforDub() {
-        if (h % 2 == 0)
-        {
+        if (h % 2 == 0) {
             for (Card c : tower) {
                 if (c.getFlipped()) {
                     dub.add(c);
@@ -77,14 +76,13 @@ public class Deck extends JFrame{
                         ) {
                     c.setMatched(true);
                 }
-            } else {
-                for (int i = 1; i < 2; i++) {
-                    dub.set(i,null);
-                }
-                for (Card c : tower
-                        ) {
-                    c.reset(tower);
-                }
+            }
+            for (int i = 0; i < 2; i++) {
+                dub.remove(i);
+            }
+            for (Card c : tower
+                    ) {
+                c.reset(tower);
             }
         }
     }
@@ -120,7 +118,6 @@ public class Deck extends JFrame{
         for (Card c: tower) {
             if (c.getX() <= Jeff.getX() + 100 && c.getX() >= Jeff.getX() - 100 && c.getY() <= Jeff.getY() + 100 && c.getY() >= Jeff.getY() - 100){
                 c.flip();
-                c.setFlipped(true);
             }
         }
     }
@@ -378,7 +375,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Rectangle.png", 10);
+                    Card temp = new Card(0, 0, 100, 100,"Square.png", 10);
                     tower[19] = temp;
                     there = true;
                     grid[a][b] = temp;
