@@ -7,13 +7,13 @@ import java.util.Random;
 
 public class Deck extends JFrame{
     protected Character Jeff;
-    protected int i,size, j,x,y,h,z;
+    protected int i,size, j,x,y,h,turns;
     protected Card temp;
     protected Card[] tower;
     protected ArrayList<Card> dub;
     protected Random gen;
     protected Card[][] grid;
-    protected boolean there;
+    protected boolean there, counter, winning;
     public Deck(){
         super("Jeff's Memory");
         this.setBounds(0, 0, 1500, 1500);
@@ -23,6 +23,8 @@ public class Deck extends JFrame{
         size = 20;
         j = 0;
         h = 0;
+        winning = true;
+        counter = false;
         dub = new ArrayList<Card>(2);
         there = false;
         gen = new Random();
@@ -36,7 +38,7 @@ public class Deck extends JFrame{
                     case KeyEvent.VK_UP: Jeff.setLocation(Jeff.getX(),Jeff.getY()-200); keepInBounds();  ; break;
                     case KeyEvent.VK_LEFT:  Jeff.setLocation(Jeff.getX()-200,Jeff.getY());  keepInBounds(); ; break;
                     case KeyEvent.VK_RIGHT:  Jeff.setLocation(Jeff.getX()+200,Jeff.getY()); keepInBounds(); ; break;
-                    case KeyEvent.VK_SPACE: flipper(); h +=1; checkforDub();  break;
+                    case KeyEvent.VK_SPACE: flipper(); checkforDub(); break;
                 }
             }
         });
@@ -65,26 +67,53 @@ public class Deck extends JFrame{
         }
     }
     public void checkforDub() {
+        for (Card c: tower
+             ) {
+            if (c.getFlipped()) {
+                counter = true;
+            }
+        }
+        if (counter){
+            h +=1;
+        }
         if (h % 2 == 0) {
+            turns++;
+            System.out.println("Turn:" + turns);
             for (Card c : tower) {
                 if (c.getFlipped()) {
                     dub.add(c);
                 }
             }
             if (dub.get(0).getValue() == dub.get(1).getValue()) {
-                for (Card c : dub
-                        ) {
+                System.out.println(dub.get(0).getValue());
+                System.out.println(dub.get(1).getValue());
+                for (Card c : dub) {
                     c.setMatched(true);
+
                 }
+                System.out.println("Congrats you got a match");
             }
-            for (int i = 0; i < 2; i++) {
-                dub.remove(i);
-            }
-            for (Card c : tower
+            System.out.println(dub.get(0).getMatched());
+            System.out.println(dub.get(1).getMatched());
+
+            for (Card c : dub
                     ) {
-                c.reset(tower);
+                c.reset();
+                c.setMatched(false);
+            }
+            dub.clear();
+        }
+        for (Card c: tower
+             ) {
+            if (!c.getMatched())
+            {
+                winning = false;
             }
         }
+        if (winning){
+            System.out.println("You won in " + turns + " turns!");
+        }
+        this.repaint();
     }
     public void createDeck() {
         tower = new Card[size];
@@ -113,7 +142,6 @@ public class Deck extends JFrame{
 
             }
         }
-
     public void flipper(){
         for (Card c: tower) {
             if (c.getX() <= Jeff.getX() + 100 && c.getX() >= Jeff.getX() - 100 && c.getY() <= Jeff.getY() + 100 && c.getY() >= Jeff.getY() - 100){
@@ -180,7 +208,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Cylinder.png", 3);
+                    Card temp = new Card(0, 0, 100, 100,"Satan!.jpg", 3);
                     tower[4] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -193,7 +221,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0,0, 100, 100,"Cylinder.png", 3);
+                    Card temp = new Card(0,0, 100, 100,"Satan!.jpg", 3);
                     tower[5] = temp;
                     there = true;
                     grid[a][b] = temp;
