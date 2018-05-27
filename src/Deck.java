@@ -80,7 +80,7 @@ public class Deck extends JFrame{
             turns++;
             System.out.println("Turn:" + turns);
             for (Card c : tower) {
-                if (c.getFlipped()) {
+                if (c.getFlipped()&&!c.getMatched()) {
                     dub.add(c);
                 }
             }
@@ -220,7 +220,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0,0, 100, 100,"Satan!.jpg", 3);
+                    Card temp = new Card(0,0, 100, 100,"Satan!.jpg", 6);
                     tower[5] = temp;
                     there = true;
                     grid[a][b] = temp;
