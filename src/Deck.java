@@ -84,24 +84,23 @@ public class Deck extends JFrame{
                     dub.add(c);
                 }
             }
+
+            System.out.println(dub.get(0).getValue());
+            System.out.println(dub.get(1).getValue());
+
             if (dub.get(0).getValue() == dub.get(1).getValue()) {
-                System.out.println(dub.get(0).getValue());
-                System.out.println(dub.get(1).getValue());
                 for (Card c : dub) {
                     c.setMatched(true);
 
                 }
                 System.out.println("Congrats you got a match");
             }
-            System.out.println(dub.get(0).getMatched());
-            System.out.println(dub.get(1).getMatched());
 
             for (Card c : dub
                     ) {
                 c.reset();
-                c.setMatched(false);
             }
-            dub.clear();
+            dub.removeAll(dub);
         }
         for (Card c: tower
              ) {
@@ -156,7 +155,7 @@ public class Deck extends JFrame{
                 int a = gen.nextInt(3);
                 int b = gen.nextInt(4);
                 if (grid[a][b] == null) {
-                    Card temp = new Card(0, 0, 100, 100,"2x4.png", 1);
+                    Card temp = new Card(0, 0, 100, 100,"2x4.png", 2);
                     tower[0] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -168,7 +167,7 @@ public class Deck extends JFrame{
                 int a = gen.nextInt(4);
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
-                    Card temp = new Card(100, 0, 100, 100,"2x4.png", 1);
+                    Card temp = new Card(100, 0, 100, 100,"2x4.png", 2);
                     tower[1] = temp;
 
                     there = true;
@@ -182,7 +181,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"ConeofShame.png", 2);
+                    Card temp = new Card(0, 0, 100, 100,"ConeofShame.png", 4);
                     tower[2] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -195,7 +194,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"ConeofShame.png", 2);
+                    Card temp = new Card(0, 0, 100, 100,"ConeofShame.png", 4);
                     tower[3] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -208,7 +207,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Satan!.jpg", 3);
+                    Card temp = new Card(0, 0, 100, 100,"Satan!.jpg", 6);
                     tower[4] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -234,7 +233,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"HayBale.png", 4);
+                    Card temp = new Card(0, 0, 100, 100,"HayBale.png", 8);
                     tower[6] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -247,7 +246,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"HayBale.png", 4);
+                    Card temp = new Card(0, 0, 100, 100,"HayBale.png", 8);
                     tower[7] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -260,7 +259,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Hexagon.png", 5);
+                    Card temp = new Card(0, 0, 100, 100,"Hexagon.png", 10);
                     tower[8] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -273,7 +272,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Hexagon.png", 5);
+                    Card temp = new Card(0, 0, 100, 100,"Hexagon.png", 10);
                     tower[9] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -286,7 +285,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0,0, 100, 100,"Hexagon2.png", 6);
+                    Card temp = new Card(0,0, 100, 100,"Hexagon2.png", 12);
                     tower[10] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -299,7 +298,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Hexagon2.png", 6);
+                    Card temp = new Card(0, 0, 100, 100,"Hexagon2.png", 12);
                     tower[11] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -312,7 +311,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Pyramid.png", 7);
+                    Card temp = new Card(0, 0, 100, 100,"Pyramid.png", 14);
                     tower[12] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -325,7 +324,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Pyramid.png", 7);
+                    Card temp = new Card(0, 0, 100, 100,"Pyramid.png", 14);
                     tower[13] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -338,7 +337,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Pyramid2.png", 8);
+                    Card temp = new Card(0, 0, 100, 100,"Pyramid2.png", 16);
                     tower[14] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -351,7 +350,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Pyramid2.png", 8);
+                    Card temp = new Card(0, 0, 100, 100,"Pyramid2.png", 16);
                     tower[15] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -364,7 +363,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0,0, 100, 100,"Rectangle.png", 9);
+                    Card temp = new Card(0,0, 100, 100,"Rectangle.png", 18);
                     tower[16] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -377,7 +376,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Rectangle.png", 9);
+                    Card temp = new Card(0, 0, 100, 100,"Rectangle.png", 18);
                     tower[17] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -390,7 +389,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Square.png", 10);
+                    Card temp = new Card(0, 0, 100, 100,"Square.png", 20);
                     tower[18] = temp;
                     there = true;
                     grid[a][b] = temp;
@@ -403,7 +402,7 @@ public class Deck extends JFrame{
                 int b = gen.nextInt(5);
                 if (grid[a][b] == null) {
 
-                    Card temp = new Card(0, 0, 100, 100,"Square.png", 10);
+                    Card temp = new Card(0, 0, 100, 100,"Square.png", 20);
                     tower[19] = temp;
                     there = true;
                     grid[a][b] = temp;
