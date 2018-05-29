@@ -16,7 +16,7 @@ public class Card extends JComponent implements MouseListener{
         question = q;
         matched=false;
 
-        back = new ImagePanel(0,0,w,h,"back.png");
+        back = new ImagePanel(0,0,w,h,"Images/back.png");
         back.setVisible(true);
         this.add(back);
 
@@ -31,7 +31,7 @@ public class Card extends JComponent implements MouseListener{
         this.setBounds(x,y,w,h);
         matched=false;
 
-        back = new ImagePanel(0,0,w,h,"back.png");
+        back = new ImagePanel(0,0,w,h,"Images/back.png");
         back.setVisible(true);
         this.add(back);
 
